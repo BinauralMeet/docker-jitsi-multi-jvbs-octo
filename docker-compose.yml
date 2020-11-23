@@ -93,6 +93,14 @@ services:
             meet.jitsi:
                 aliases:
                     - ${XMPP_DOMAIN}
+        ulimits:
+            nofile:
+                soft: 65000
+                hard: 65000
+            nproc:
+                soft: 65000
+                hard: 65000
+
 
     # XMPP server
     prosody:
@@ -159,6 +167,13 @@ services:
             meet.jitsi:
                 aliases:
                     - ${XMPP_SERVER}
+        ulimits:
+            nofile:
+                soft: 65000
+                hard: 65000
+            nproc:
+                soft: 65000
+                hard: 65000
 
     # Focus component
     jicofo:
@@ -188,6 +203,14 @@ services:
             - prosody
         networks:
             meet.jitsi:
+                   
+        ulimits:
+            nofile:
+                soft: 65000
+                hard: 65000
+            nproc:
+                soft: 65000
+                hard: 65000
 
     # Video bridge
     jvb:
@@ -223,6 +246,13 @@ services:
             meet.jitsi:
                 aliases:
                     - jvb.meet.jitsi
+        ulimits:
+            nofile:
+                soft: 65000
+                hard: 65000
+            nproc:
+                soft: 65000
+                hard: 65000
 
 # Custom network so all services can communicate using a FQDN
 networks:

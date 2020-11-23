@@ -31,6 +31,14 @@ services:
         networks:
             meet.jitsi:
 
+        ulimits:
+            nofile:
+                soft: 65000
+                hard: 65000
+            nproc:
+                soft: 65000
+                hard: 65000
+
 # Custom network so all services can communicate using a FQDN
 networks:
     meet.jitsi:
