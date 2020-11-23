@@ -1,4 +1,4 @@
-version: '3'
+version: '3.5'
 
 services:
     # Frontend
@@ -198,7 +198,7 @@ services:
             - '${JVB_TCP_PORT}:${JVB_TCP_PORT}'
         volumes:
             - ${CONFIG}/jvb:/config:Z
-            - ${CONFIG}/myjvb:/usr/share/jitsi-videobridge
+              # - ${CONFIG}/myjvb:/usr/share/jitsi-videobridge
         environment:
             - DOCKER_HOST_ADDRESS
             - XMPP_AUTH_DOMAIN
@@ -227,3 +227,4 @@ services:
 # Custom network so all services can communicate using a FQDN
 networks:
     meet.jitsi:
+            name: custom_jitsi_network
