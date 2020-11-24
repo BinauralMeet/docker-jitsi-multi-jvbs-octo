@@ -227,7 +227,7 @@ services:
             - '${JVB_TCP_PORT}:${JVB_TCP_PORT}'
         volumes:
             - ${CONFIG}/jvb:/config:Z
-              # - ${CONFIG}/myjvb:/usr/share/jitsi-videobridge
+            - ${CONFIG}/myjvb:/usr/share/jitsi-videobridge
         environment:
             - DOCKER_HOST_ADDRESS
             - XMPP_AUTH_DOMAIN
