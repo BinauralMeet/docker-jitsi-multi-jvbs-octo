@@ -177,7 +177,7 @@ services:
 
     # Focus component
     jicofo:
-        image: hasemeet/jicofo:v2
+        image: jitsi/jicofo:stable-5142
         restart: ${RESTART_POLICY}
         volumes:
             - ${CONFIG}/jicofo:/config:Z
@@ -218,7 +218,7 @@ services:
 
     # Video bridge
     jvb:
-        image: hasemeet/jvb:v2
+        image: jitsi/jvb:stable-5142
         restart: ${RESTART_POLICY}
         expose:
             - '4096/udp'
