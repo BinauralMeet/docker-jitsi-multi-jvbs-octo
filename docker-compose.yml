@@ -91,6 +91,7 @@ services:
             - XMPP_RECORDER_DOMAIN
         networks:
             meet.jitsi:
+                ipv4_address: 172.19.0.2
                 aliases:
                     - ${XMPP_DOMAIN}
         ulimits:
@@ -165,6 +166,7 @@ services:
             - TZ
         networks:
             meet.jitsi:
+                ipv4_address: 172.19.0.3
                 aliases:
                     - ${XMPP_SERVER}
         ulimits:
@@ -207,6 +209,7 @@ services:
             - prosody
         networks:
             meet.jitsi:
+                ipv4_address: 172.19.0.4
                    
         ulimits:
             nofile:
@@ -251,6 +254,7 @@ services:
             - prosody
         networks:
             meet.jitsi:
+                ipv4_address: 172.19.0.5
                 aliases:
                     - jvb.meet.jitsi
         ulimits:
@@ -265,3 +269,9 @@ services:
 networks:
     meet.jitsi:
             name: custom_jitsi_network
+            driver: bridge
+            ipam:
+                driver: default
+                config:
+                    -   subnet: 172.19.0.0/24
+                        gateway: 172.19.0.1
